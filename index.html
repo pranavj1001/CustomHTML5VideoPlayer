@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="css/darkly.css">
     
     <!-- jQuery -->
-    <script src="js/jquery-2.1.4.min.js"></script>
+    <script src="js/jquery.min.js"></script>
     
     <!-- Bootstrap JS -->
     <script src="js/bootstrap.min.js"></script>
@@ -24,8 +24,35 @@
     
     <div class="embed-responsive embed-responsive-16by9">
         <!-- The path of the video goes in here in the src -->
-        <video width="854" height="480" src="video/YouBetterRun.mp4" controls></video>
+        <video id="videoOutput" width="100%" height="100%" src="video/YouBetterRun.mp4"></video>
     </div>
+    
+    <!-- Bootstrap Buttons -->
+    <div class="btn-group btn-group-justified" role="group">
+        <a class="btn btn-default" onclick="playVideo()">Play</a>
+        <a class="btn btn-default" onclick="pauseVideo()">Pause</a>
+        <a class="btn btn-default" onclick="stopVideo()">Stop</a>
+    </div>
+    
+    
+    <script>
+        
+        var controlThePlayer = document.getElementById("videoOutput");
+
+        function playVideo(){
+            controlThePlayer.play();
+        }
+        
+        function pauseVideo(){
+            controlThePlayer.pause();
+        }
+        
+        function stopVideo(){
+            controlThePlayer.pause();
+            controlThePlayer.currentTime = 0;
+        }
+        
+    </script>
         
 </body>
 </html>
