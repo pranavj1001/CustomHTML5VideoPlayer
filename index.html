@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="videoPlayerApp">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,28 +13,34 @@
     <!-- Darkly CSS -->
     <link rel="stylesheet" href="css/darkly.css">
     
-    <!-- jQuery -->
-    <script src="js/jquery.min.js"></script>
-    
-    <!-- Bootstrap JS -->
-    <script src="js/bootstrap.min.js"></script>
-    
 </head>
-<body>
+<body ng-controller="VideoController">
     
     <div class="embed-responsive embed-responsive-16by9">
         <!-- The path of the video goes in here in the src -->
         <video id="videoOutput" width="100%" height="100%" src="video/YouBetterRun.mp4"></video>
     </div>
     
-    <!-- Bootstrap Buttons -->
+    <!-- Bootstrap Buttons
     <div class="btn-group btn-group-justified" role="group">
         <a class="btn btn-default" onclick="playVideo()">Play</a>
         <a class="btn btn-default" onclick="pauseVideo()">Pause</a>
         <a class="btn btn-default" onclick="stopVideo()">Stop</a>
-    </div>
+    </div>-->   
     
+    <!-- jQuery -->
+    <script src="js/jquery.min.js"></script>
     
+    <!-- Bootstrap JS -->
+    <script src="js/bootstrap.min.js"></script>
+    
+    <!-- Angular JS -->
+    <script src="js/angular.min.js"></script>
+    
+    <!-- Our App JS -->
+    <script src="js/videoPlayerApp.js"></script>
+      
+    <!--
     <script>
         
         var controlThePlayer = document.getElementById("videoOutput");
@@ -52,7 +58,7 @@
             controlThePlayer.currentTime = 0;
         }
         
-    </script>
+    </script>-->
         
 </body>
 </html>
