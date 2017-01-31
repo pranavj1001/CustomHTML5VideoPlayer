@@ -13,12 +13,23 @@
     <!-- Darkly CSS -->
     <link rel="stylesheet" href="css/darkly.css">
     
+    <!-- Our Styling -->
+    <link rel="stylesheet" href="css/videoPlayerStyle.css">
+    
 </head>
 <body ng-controller="VideoController">
     
-    <div class="embed-responsive embed-responsive-16by9">
-        <!-- The path of the video goes in here in the src -->
-        <video id="videoOutput" width="100%" height="100%" src="{{videoSource}}"></video>
+    <div id="fullPlayer" class="unselectable ng-cloak">
+        <div class="embed-responsive embed-responsive-16by9">
+            <video id="videoOutput" width="100%" height="100%" src="{{videoSource}}" controls></video>
+            <div id="bigPlayButton" class="well"><span class="glyphicon glyphicon-play"></span></div>
+            <div id="videoTitle">{{titleDisplay}}</div>
+        </div>
+        <div id="playerToolBar">
+            <a id="playBtn" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></a>
+            <a id="muteBtn" class="btn btn-default"><span class="glyphicon glyphicon-volume-up"></span></a>
+            <span id="videoTime">00:00:00 / 00:00:00</span>
+        </div>
     </div>
     
     <h1>{{titleDisplay}}</h1>
