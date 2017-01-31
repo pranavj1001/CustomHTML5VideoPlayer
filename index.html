@@ -18,8 +18,11 @@
     
     <div class="embed-responsive embed-responsive-16by9">
         <!-- The path of the video goes in here in the src -->
-        <video id="videoOutput" width="100%" height="100%" src="video/YouBetterRun.mp4"></video>
+        <video id="videoOutput" width="100%" height="100%" src="{{videoSource}}"></video>
     </div>
+    
+    <h1>{{titleDisplay}}</h1>
+    <h2>{{videoDescription}}</h2>
     
     <!-- Bootstrap Buttons
     <div class="btn-group btn-group-justified" role="group">
@@ -36,6 +39,14 @@
     
     <!-- Angular JS -->
     <script src="js/angular.min.js"></script>
+    
+    <script type="text/javascript">
+    
+        var videoSource = "video/YouBetterRun.mp4";
+        var titleDisplay = "You Better Run";
+        var videoDescription = "This Video was downloaded from 9gag.com";
+        
+    </script>
     
     <!-- Our App JS -->
     <script src="js/videoPlayerApp.js"></script>
