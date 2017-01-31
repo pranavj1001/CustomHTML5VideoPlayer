@@ -21,13 +21,13 @@
     
     <div id="fullPlayer" class="unselectable ng-cloak">
         <div class="embed-responsive embed-responsive-16by9">
-            <video id="videoOutput" width="100%" height="100%" src="{{videoSource}}" controls></video>
-            <div id="bigPlayButton" class="well"><span class="glyphicon glyphicon-play"></span></div>
-            <div id="videoTitle">{{titleDisplay}}</div>
+            <video id="videoOutput" ng-click="togglePlay()" width="100%" height="100%" src="{{videoSource}}"></video>
+            <div id="bigPlayButton" ng-click="togglePlay()" ng-hide="videoPlaying" class="well"><span class="glyphicon glyphicon-play"></span></div>
+            <div id="videoTitle" ng-hide="videoPlaying">{{titleDisplay}}</div>
         </div>
         <div id="playerToolBar">
-            <a id="playBtn" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></a>
-            <a id="muteBtn" class="btn btn-default"><span class="glyphicon glyphicon-volume-up"></span></a>
+            <a id="playBtn" ng-click="togglePlay()" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></a>
+            <a id="muteBtn" ng-click="toggleMute()" class="btn btn-default"><span class="glyphicon glyphicon-volume-up"></span></a>
             <span id="videoTime">00:00:00 / 00:00:00</span>
         </div>
     </div>
