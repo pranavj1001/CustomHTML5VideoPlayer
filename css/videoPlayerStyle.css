@@ -48,3 +48,25 @@ html, body {
     font-size: 1.1em;
     color: #c0c0c0;
 }
+
+/* OVERLAYS */
+#bigPlayButton {
+    background-color: rgba(0, 0, 0, 0.78);
+    width:100px;
+    height:100px;
+    position:absolute;
+    font-size: 3.2em;
+    cursor: pointer;
+    text-align: center;
+}
+#videoTitle {
+    position: absolute;
+    top:0px;
+    left:0px;
+    font-size: 1.3em;
+    color: whitesmoke;
+    width:100%;
+    margin:5px;
+    margin-left:10px;
+    text-shadow: 1px 1px #333333;
+}
