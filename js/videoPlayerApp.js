@@ -17,7 +17,20 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     $scope.currentTime;
     $scope.totalTime;
     
+    //scope var for the scrub bar also known as progress bar
+    $scope.scrubTop = -1000;
+    $scope.scrubLeft = -1000;
+    $scope.vidHeightCenter = -1000;
+    $scope.vidWidthCenter = -1000;
+    
+    //interval function will run this code after every 100 milliseconds
     $interval(function(){
+        var t = $scope.videoDisplay.currentTime;
+        var d = $scope.videoDisplay.duration;
+        var w = t / d * 100;
+        var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
+        $scope.scrubLeft = (t / d * p) - 7;
+        $scope.updateLayout();
         $scope.updateLayout();
     },100);
     
@@ -75,8 +88,11 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
         }
     };
 
-    //function to make sure that updated Time changes get reflected on the main video Player 
+    //function to make sure that updated changes get reflected on the main video Player 
     $scope.updateLayout = function() {
+        $scope.scrubTop = document.getElementById('progressMeterFull').offsetTop-2;
+        $scope.vidHeightCenter =  $scope.videoDisplay.offsetHeight/2 - 50;
+        $scope.vidWidthCenter = $scope.videoDisplay.offsetWidth/2 - 50;
         if(!$scope.$$phase) {
             $scope.$apply();
         }
