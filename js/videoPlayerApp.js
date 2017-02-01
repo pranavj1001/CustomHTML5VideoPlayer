@@ -1,7 +1,7 @@
 var videoPlayerApp = angular.module('videoPlayerApp', []);
 
 //Controller
-videoPlayerApp.controller('VideoController', ['$scope', '$window', function($scope, $window) {
+videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', function($scope, $window, $interval) {
     
     //scope var for the main video element.
     $scope.videoDisplay = document.getElementById("videoOutput");
@@ -16,6 +16,10 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', function($sco
     //scope var for the time duration of the video.
     $scope.currentTime;
     $scope.totalTime;
+    
+    $interval(function(){
+        $scope.updateLayout();
+    },100);
     
     //toggle Play function.
     $scope.togglePlay = function() { 
@@ -62,7 +66,13 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', function($sco
     //function to update Time of the video.
     $scope.updateTime = function(e) {
         $scope.currentTime = e.target.currentTime;
-        $scope.updateLayout();
+        if($scope.currentTime == $scope.totalTime){
+            $scope.videoDisplay.pause();
+            $scope.videoPlaying = false;
+            $scope.currentTime = 0;
+            $('#playBtn').children("span").toggleClass("glyphicon-play", true);
+            $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+        }
     };
 
     //function to make sure that updated Time changes get reflected on the main video Player 
