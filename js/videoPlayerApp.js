@@ -25,11 +25,11 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     
     //interval function will run this code after every 100 milliseconds
     $interval(function(){
-        var t = $scope.videoDisplay.currentTime;
-        var d = $scope.videoDisplay.duration;
-        var w = t / d * 100;
+        var time = $scope.videoDisplay.currentTime;
+        var duration = $scope.videoDisplay.duration;
+        var w = time / duration * 100;
         var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
-        $scope.scrubLeft = (t / d * p) - 7;
+        $scope.scrubLeft = (time / duration * p) - 7;
         $scope.updateLayout();
         $scope.updateLayout();
     },100);
