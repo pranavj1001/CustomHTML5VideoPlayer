@@ -25,8 +25,8 @@
             <div id="bigPlayButton" ng-click="togglePlay()" ng-hide="videoPlaying" class="well" style="margin-top:{{vidHeightCenter}}px;margin-left:{{vidWidthCenter}}px;"><span class="glyphicon glyphicon-play"></span></div>
             <div id="videoTitle" ng-hide="videoPlaying">{{titleDisplay}}</div>
         </div>
-        <div id="progressMeterFull">
-            <div id="progressMeter" style="width:{{scrubLeft+7}}px"></div>
+        <div id="progressMeterFull" ng-click="videoSeek($event)">
+            <div id="progressMeter" ng-click="videoSeek($event)" style="width:{{scrubLeft+7}}px"></div>
         </div>
         <div id="playerToolBar">
             <a id="playBtn" ng-click="togglePlay()" class="btn btn-default"><span class="glyphicon glyphicon-play"></span></a>

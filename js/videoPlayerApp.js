@@ -78,13 +78,15 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     
     //function to update Time of the video.
     $scope.updateTime = function(e) {
-        $scope.currentTime = e.target.currentTime;
-        if($scope.currentTime == $scope.totalTime){
-            $scope.videoDisplay.pause();
-            $scope.videoPlaying = false;
-            $scope.currentTime = 0;
-            $('#playBtn').children("span").toggleClass("glyphicon-play", true);
-            $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+        if(!$scope.videoDisplay.seeking){
+            $scope.currentTime = e.target.currentTime;
+            if($scope.currentTime == $scope.totalTime){
+                $scope.videoDisplay.pause();
+                $scope.videoPlaying = false;
+                $scope.currentTime = 0;
+                $('#playBtn').children("span").toggleClass("glyphicon-play", true);
+                $('#playBtn').children("span").toggleClass("glyphicon-pause", false);
+            }
         }
     };
 
@@ -97,6 +99,14 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
             $scope.$apply();
         }
     };
+    
+    //function to jump into a particular point from the progress bar
+    $scope.videoSeek = function($event) {
+        var w = document.getElementById('progressMeterFull').offsetWidth;
+        var d = $scope.videoDisplay.duration;
+        var s = Math.round($event.pageX / w * d);
+        $scope.videoDisplay.currentTime = s;
+    }
     
     $scope.initPlayer();
     
