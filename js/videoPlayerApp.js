@@ -23,15 +23,21 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     $scope.vidHeightCenter = -1000;
     $scope.vidWidthCenter = -1000;
     
+    //scope var for the pointer on the progress var
+    $scope.isDragging = false;
+    
     //interval function will run this code after every 100 milliseconds
     $interval(function(){
-        var time = $scope.videoDisplay.currentTime;
-        var duration = $scope.videoDisplay.duration;
-        var w = time / duration * 100;
-        var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
-        $scope.scrubLeft = (time / duration * p) - 7;
-        $scope.updateLayout();
-        $scope.updateLayout();
+        if(!$scope.isDragging){
+            var t = $scope.videoDisplay.currentTime;
+            var d = $scope.videoDisplay.duration;
+            var w = t / d * 100;
+            var p = document.getElementById('progressMeterFull').offsetLeft + document.getElementById('progressMeterFull').offsetWidth;
+            $scope.scrubLeft = (t / d * p) - 7;
+            $scope.updateLayout();
+        }else{
+            $scope.scrubLeft = document.getElementById('thumbScrubber').offsetLeft;
+        }
     },100);
     
     //toggle Play function.
@@ -108,7 +114,28 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
         $scope.videoDisplay.currentTime = s;
     }
     
+    //call initPlayer function
     $scope.initPlayer();
+    
+    //function when the mouse moves
+    $scope.mouseMoving = function($event) {
+        if($scope.isDragging){
+            $("#thumbScrubber").offset({left:$event.pageX});
+        }
+    }
+    
+    //function when the dragging starts
+    $scope.dragStart = function($event) {
+        $scope.isDragging = true;
+    }
+    
+    //function when the dragging ends
+    $scope.dragStop = function($event) {
+        if($scope.isDragging){
+            $scope.videoSeek($event);
+            $scope.isDragging = false;
+        }
+    }
     
 }]);
 
