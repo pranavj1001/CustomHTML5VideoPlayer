@@ -26,6 +26,8 @@
             <div id="videoTitle" ng-hide="videoPlaying">{{titleDisplay}}</div>
         </div>
         <div id="progressMeterFull" ng-click="videoSeek($event)">
+            <div id="thumbScrubber" style="top:{{scrubTop}}px;left:{{scrubLeft-1}}px;" ng-mousedown="dragStart($event)"></div>
+            <div id="fullPlayer" class="unselectable ng-cloak" ng-mousemove="mouseMoving($event)" ng-mouseup="dragStop($event)"></div>
             <div id="progressMeter" ng-click="videoSeek($event)" style="width:{{scrubLeft+7}}px"></div>
         </div>
         <div id="playerToolBar">
