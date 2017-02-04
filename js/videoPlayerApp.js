@@ -137,6 +137,20 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
         }
     }
     
+    //function for enabling fullScreen Mode
+    $scope.toggleFullscreen = function() {
+    var v = $scope.videoDisplay;
+    if(v.requestFullscreen) {
+        v.requestFullscreen();
+    }else if(v.mozRequestFullScreen) {
+        v.mozRequestFullScreen();
+    }else if(v.webkitRequestFullscreen) {
+        v.webkitRequestFullscreen();
+    }else if(v.msRequestFullscreen) {
+        v.msRequestFullscreen();
+    }
+}
+    
 }]);
 
 //Filter to display a more friendly time display
