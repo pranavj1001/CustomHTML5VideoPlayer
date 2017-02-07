@@ -26,6 +26,18 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     //scope var for the pointer on the progress var
     $scope.isDragging = false;
     
+    //scope var for the option button
+    $scope.showOptions = false;
+
+    //function which toggles the option panel
+    $scope.toggleDetails = function() {
+        if($scope.showOptions){
+            $scope.showOptions = false;
+        }else{
+            $scope.showOptions = true;
+        }
+    }
+    
     //interval function will run this code after every 100 milliseconds
     $interval(function(){
         if(!$scope.isDragging){
