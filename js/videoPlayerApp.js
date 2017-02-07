@@ -33,8 +33,10 @@ videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', 
     $scope.toggleDetails = function() {
         if($scope.showOptions){
             $scope.showOptions = false;
+            $scope.togglePlay();
         }else{
             $scope.showOptions = true;
+            $scope.togglePlay();
         }
     }
     
