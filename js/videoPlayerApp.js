@@ -1,4 +1,4 @@
-var videoPlayerApp = angular.module('videoPlayerApp', []);
+var videoPlayerApp = angular.module('videoPlayerApp', ['ngAnimate']);
 
 //Controller
 videoPlayerApp.controller('VideoController', ['$scope', '$window', '$interval', function($scope, $window, $interval) {
