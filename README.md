@@ -1,10 +1,20 @@
-# CustomHTML5VideoPlayer
-A Custom HTML 5 Video Player.
+# WebComponents
+WebComponents to make your site stand out.
 
 Hey there,
 
-  This repository contains a custom HTML 5 video player. I've used **AngularJS**, **Bootstrap**, **Darkly** and **jQuery** here.
+  This repo contains some Web Compoments which might help you for your website or webapp. JavaScript is extensively used here in making those components.
   
-  I've made this repo to share this player. It can be used as a Video Player in any web application. Also, my future projects may include this player.
+  ##Components
   
-  You're free to use this player in your application.
+  * **Custom HTML5 Video Player** - This is a video player built using AngularJS, Bootstrap, Darkly Bootstrap. It can be easily used in any webpage or app.
+  
+  * **Timer** - This is a simple timer developed in Vanilla JS. It can be easily deployed in any webpage or app.
+  
+  ##Queries?
+  
+  email me at pranavj1001@gmail.com
+  
+  ##License
+  
+  MIT
