@@ -5,7 +5,7 @@ Hey there,
 
   This repo contains some Web Compoments which might help you for your website or webapp. JavaScript is extensively used here in making those components.
   
-  ##Components
+  ## Components
   
   * **Custom HTML5 Video Player** - This is a video player built using AngularJS, Bootstrap, Darkly Bootstrap. It can be easily used in any webpage or app.
   
@@ -15,6 +15,6 @@ Hey there,
   
   email me at pranavj1001@gmail.com
   
-  ##License
+  ## License
   
   MIT
