@@ -11,7 +11,7 @@ Hey there,
   
   * **Timer** - This is a simple timer developed in Vanilla JS. It can be easily deployed in any webpage or app.
   
-  ##Queries?
+  ## Queries?
   
   email me at pranavj1001@gmail.com
   
